@@ -1,0 +1,6 @@
+prettyconf
+django
+django-debug-toolbar
+django-extensions
+werkzeug
+tqdm

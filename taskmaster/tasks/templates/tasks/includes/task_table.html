@@ -1,0 +1,42 @@
+<table class="table is-striped">
+  <thead>  
+    <tr>
+      <th>Nombre</th>
+      <th>Prioridad</th>
+      <th>Orden</th>
+      <th>Fuera de plazo</th>
+      <th>Proyecto</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>  
+  {% for tarea in tareas %}
+    <tr>
+      <td class="{% if tarea.priority == 'H' %}tarea-urgente{% endif %}">
+       <a href="{% url 'detalle_tarea' pk=tarea.pk %}"> 
+        {{ tarea.name }}
+      </a>
+      </td>
+      <td>{{ tarea.get_priority_display }}</td>
+      <td>{{ tarea.orden }}</td>
+      <td>
+        {% if tarea.is_due %}
+          <b class="tag is-danger is-rounded">Fuera de plazo</b>
+        {% endif %}
+      </td>
+      
+      <td>
+        {% if tarea.project %}
+          <b>{{ tarea.project.name }}</b>
+        {% else %}
+          <i>-</i>
+        {% endif %}
+      </td>
+
+      <td style="color: {{ tarea.color }}">
+        {{ tarea.color }}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody> 
+</table>
