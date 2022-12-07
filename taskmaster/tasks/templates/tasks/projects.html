@@ -19,9 +19,9 @@ Lista de proyectos ~ TaskMaster! Tu gestor de tareas
          href="{% url 'proyecto_por_codigo' code=project.code %}">
         Detalles
       </a>
-      <progress class="progress" value="{{project.progress}}" max ="100"><p>aa</p></progress>
      </p>
     </div>
+    <progress class="progress" value={{ project.progress }} max ="100"></progress>
   </div>   
 {% endfor %}
 </div><!-- de columns--> 

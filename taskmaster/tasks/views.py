@@ -18,6 +18,13 @@ def homepage(request):
     })
 
 
+def lista_tareas(request):
+    tasks = models.Task.objects.all()
+    return render(request, 'tasks/tasks.html', {
+        'tasks': tasks,
+    })
+
+
 def lista_proyectos(request):
     projects = models.Project.objects.all()
     return render(request, 'tasks/projects.html', {
