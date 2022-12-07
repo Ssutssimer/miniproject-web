@@ -19,9 +19,9 @@ def homepage(request):
 
 
 def lista_tareas(request):
-    tasks = models.Task.objects.all()
-    return render(request, 'tasks/tasks.html', {
-        'tasks': tasks,
+    tareas = models.Task.objects.all()
+    return render(request, 'tasks/tareas.html', {
+        'tareas': tareas,
     })
 
 

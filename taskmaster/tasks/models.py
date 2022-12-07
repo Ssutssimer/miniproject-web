@@ -20,11 +20,10 @@ class Project(models.Model):
     start_date = models.DateField()
     end_date  = models.DateField()
     
-    
     def progress(self):
         delta = self.end_date - self.start_date
-        current_days =  hoy() - self.start_date
-        progress = round(((current_days.days * 100) / delta.days), 2)
+        current_day = hoy() - self.start_date
+        progress = round(((current_day.days * 100) // delta.days), 2)
         if progress <= 0:
             progress = 0
             progress
@@ -33,7 +32,7 @@ class Project(models.Model):
             progress
         else:
             progress
-        progress
+        return progress
 
     def __str__(self):
         return f'{self.code}: {self.description}'
